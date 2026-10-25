@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* ===== Variáveis ===== */
+:root {
+    --bg: #f4f5fb;
+    --surface: #ffffff;
+    --text: #1e2235;
+    --muted: #6b7280;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --primary-soft: #eef2ff;
+    --danger: #dc2626;
+    --danger-soft: #fee2e2;
+    --border: #e5e7eb;
+    --input-bg: #f9fafb;
+    --row-hover: #f8f9ff;
+    --radius: 14px;
+    --radius-sm: 10px;
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+    --ring: 0 0 0 4px rgba(79, 70, 229, 0.18);
+    --transition: 0.18s ease;
+}
+
+/* ===== Base ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 40px 20px 60px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* faixa de destaque no topo */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899);
+    z-index: 10;
+}
+
+h2,
+h3 {
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h3::before {
+    content: "";
+    width: 4px;
+    height: 1.1em;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #4f46e5, #7c3aed);
+}
+
+/* ===== Cartões ===== */
+.container,
+.containerlista {
+    max-width: 920px;
+    margin: 0 auto 28px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ===== Mensagens (sucesso / erro) ===== */
+body > p {
+    max-width: 920px;
+    margin: 0 auto 20px;
+    padding: 12px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid currentColor;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    box-shadow: var(--shadow);
+}
+
+/* ===== Formulário principal ===== */
+.container > form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+form br {
+    display: none;
+}
+
+label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.container > form > label {
+    margin-top: 12px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 11px 14px;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+select {
+    appearance: none;
+    padding-right: 40px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+input:hover,
+select:hover {
+    border-color: #c7cbd6;
+}
+
+input:focus,
+select:focus {
+    background-color: var(--surface);
+    border-color: var(--primary);
+    box-shadow: var(--ring);
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 4px 0;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* ===== Botões ===== */
+button,
+button[type="submit"] {
+    align-self: flex-start;
+    margin-top: 20px;
+    padding: 11px 24px;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), #7c3aed);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+
+button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+    box-shadow: 0 8px 18px rgba(79, 70, 229, 0.35);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
+}
+
+/* ===== Tabela ===== */
+table {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+    margin-top: 4px;
+}
+
+th,
+td {
+    padding: 16px 12px;
+    text-align: left;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--input-bg);
+}
+
+tr:last-child td {
+    border-bottom: 0;
+}
+
+td {
+    transition: background var(--transition);
+}
+
+tr:hover td {
+    background: var(--row-hover);
+}
+
+/* formulário de edição dentro da linha */
+td form {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+td label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+}
+
+td input[type="text"],
+td input[type="number"],
+td input[type="datetime"],
+td input[type="datetime-local"] {
+    width: auto;
+    min-width: 100px;
+    max-width: 190px;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+}
+
+td button {
+    margin-top: 0;
+    padding: 9px 18px;
+    font-size: 0.85rem;
+    box-shadow: none;
+}
+
+/* link Excluir */
+td > a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--danger);
+    text-decoration: none;
+    background: var(--danger-soft);
+    border-radius: 8px;
+    transition: background var(--transition), color var(--transition);
+}
+
+td > a:hover {
+    color: #fff;
+    background: var(--danger);
+}
+
+/* ===== Extras do estilo antigo ===== */
+.count-info {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--primary-soft);
+    border-radius: 999px;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition);
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+.box:nth-child(2) {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.box:nth-child(3) {
+    background: linear-gradient(135deg, #fb923c, #ea580c);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 24px 12px 40px;
+    }
+
+    .container,
+    .containerlista {
+        padding: 20px;
+    }
+
+    td form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    td input[type="text"],
+    td input[type="number"],
+    td input[type="datetime"],
+    td input[type="datetime-local"] {
+        max-width: none;
+        width: 100%;
+    }
+
+    .box {
+        width: 100%;
+        height: 140px;
+    }
+}
+
+/* ===== Modo escuro (segue o sistema) ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0d1017;
+        --surface: #151a24;
+        --text: #e6e8ee;
+        --muted: #8b93a7;
+        --primary-soft: #1e1b4b;
+        --danger-soft: #3b1219;
+        --border: #242b3a;
+        --input-bg: #1a2030;
+        --row-hover: #1a2030;
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    input:hover,
+    select:hover {
+        border-color: #38425a;
+    }
+
+    td > a {
+        color: #fca5a5;
+    }
+}
