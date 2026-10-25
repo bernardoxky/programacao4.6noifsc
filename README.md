@@ -5,4 +5,4 @@ Criado em colaboração pelos alunos:
 - Deidiani Bucoski (@deidianib)
 - Guilherme Chimek (@guilherme-chimek1)
 - Pedro Sudatti (@PH-Sudatti)
-- Valentina Povala (@
+- Valentina Povala (@Valen-pv)
