@@ -1,0 +1,8 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# conexao.php guarda a senha do banco: ninguém acessa direto pelo navegador
+# (os outros arquivos PHP continuam incluindo ele normalmente)
+<Files "conexao.php">
+  Require all denied
+</Files>
